@@ -22,18 +22,6 @@ public class CustomInputJob {
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 
-	@Autowired
-	private StepBuilderFactory stepBuilderFactory;
-
-	@Bean
-	public CustomerItemReader customerItemReader() {
-		CustomerItemReader customerItemReader = new CustomerItemReader();
-
-		customerItemReader.setName("customerItemReader");
-
-		return customerItemReader;
-	}
-
 	@Bean
 	public ItemWriter<Customer> itemWriter() {
 		return (items) -> items.forEach(System.out::println);
